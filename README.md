@@ -1,4 +1,4 @@
 # openscreencast_scripts
 
-Skripte von openscreencast.de (Author: info@openscreencast.de)    
+Skripte von openscreencast.de (Author: info ÄT openscreencast.de)    
 Lizenz: MIT
