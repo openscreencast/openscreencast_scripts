@@ -8,6 +8,80 @@
 
 import simplejson
 
+class data_statistik(object):
+
+    def __init__(self, json_data):
+        self.json_data = json_data
+
+    def count_data(self):
+        self.count_data = {}
+
+        for key in self.json_data:
+            for key_next in self.json_data[key]:
+                if self.count_data.has_key(key_next):
+                    self.count_data[key_next] += 1
+                else:
+                    self.count_data[key_next] = 1
+
+        for key in self.count_data:
+            print key, ": ", self.count_data[key]
+#        print "Anzahl der Einträge:", len(json_data.keys())
+
+    def count_data_short(self):
+        # Variable (Dictionary) um die Einträge zu zählen
+        count_data = {
+            "all": 0,
+            "video": 0,
+            "article": 0,
+            "ogg": 0,
+            "webm": 0,
+            "mp4": 0,
+            "mkv": 0,
+            "srt": 0,
+            "youtube": 0,
+            "vimeo": 0
+            } 
+
+        # Alle Keys in einer Schleife durchgehen
+        for key in self.json_data:
+            count_data['all'] += 1
+            if (self.json_data[key].has_key('ogg_file') != False) or (self.json_data[key].has_key('youtube') != False) or (self.json_data[key].has_key('vimeo') != False) or (self.json_data[key].has_key('webm_file') != False) or (self.json_data[key].has_key('mp4_file') != False) or (self.json_data[key].has_key('mkv_file') != False):
+                count_data['video'] += 1
+            else:
+                count_data['article'] += 1
+
+            if (self.json_data[key].has_key("youtube") == True):
+                count_data["youtube"] += 1
+	        if (self.json_data[key].has_key('vimeo') == True):
+		        count_data['vimeo'] += 1
+	        if (self.json_data[key].has_key('ogg_file') == True):
+		        count_data['ogg'] += 1
+	        if (self.json_data[key].has_key('webm_file') == True):
+		        count_data['webm'] += 1
+	        if (self.json_data[key].has_key('mp4_file') == True):
+		        count_data['mp4'] += 1
+	        if (self.json_data[key].has_key('mkv_file') == True):
+		        count_data['mkv'] += 1
+	        if (self.json_data[key].has_key('srt_file') == True):
+		        count_data['srt'] += 1
+
+        print ""
+        print ""
+        print "data.json - Statistik"
+        print "====================="
+        print ""
+        print "Einträge:", count_data["all"], "( Videos:", count_data["video"], "Artikel:", count_data["article"], ")"
+        print ""
+        print "Youtube:", count_data["youtube"], "Vimeo:", count_data["vimeo"]
+        print ""
+        print "ogg:", count_data["ogg"], "mp4:", count_data["mp4"], "webm:", count_data["webm"], "mkv:", count_data["mkv"]
+        print ""
+        print "srt:", count_data["srt"]   
+        print ""
+        print ""  
+#        for key in count_data:
+#            print key, ": ", count_data[key]
+
 
 # Datei data.json einlesen
 json_file_content = open('data.json').read()
@@ -86,7 +160,10 @@ def count_data(json_data):
 #    print "Anzahl der Einträge:", len(json_data.keys())
 
 
-count_data_short(json_data)
+#count_data_short(json_data)
 
-count_data(json_data)
+#count_data(json_data)
 
+stat = data_statistik(json_data)
+stat.count_data_short()
+stat.count_data()
