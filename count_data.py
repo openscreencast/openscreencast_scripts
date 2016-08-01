@@ -123,8 +123,16 @@ class data_statistik(object):
 
 
 # Datei data.json einlesen
-json_file_content = open('data.json').read()
-
+try:
+    json_file_content = open('data.json').read()
+except IOError:
+    print ""
+    print "Die Datei data.json ist leider nicht zu finden"
+    print ""    
+    print "Die Datei data.json muss sich im gleichen Verzeichnis befinden wie die Datei count_data.py."
+    print ""
+    json_file_content = "{}"
+    
 # json laden und in eine Variable (Dictionary) stecken
 json_data = simplejson.loads(json_file_content)
 
