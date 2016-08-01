@@ -71,6 +71,22 @@ def count_data_short(json_data):
 #        print key, ": ", count_data[key]
 
 
+def count_data(json_data):
+    count_data = {}
+
+    for key in json_data:
+        for key_next in json_data[key]:
+            if count_data.has_key(key_next):
+                count_data[key_next] += 1
+            else:
+                count_data[key_next] = 1
+
+    for key in count_data:
+        print key, ": ", count_data[key]
+#    print "Anzahl der Einträge:", len(json_data.keys())
+
+
 count_data_short(json_data)
 
+count_data(json_data)
 
