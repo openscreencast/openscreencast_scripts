@@ -6,14 +6,43 @@
 # Author: info@openscreencast.de
 # License: MIT
 
+"""
+count_data.py ist ein Skript um die Datei data.json (Datenbank) von openscreencast.de
+auszuwerten. Die Daten werden in eine Statistik gegossen.
+
+Beispiel:
+
+python ./count_data.py
+
+Datei data.json muss im gleichen Verzeichnis sein.
+"""
+
 import simplejson
 
+# --- mit OOP ---
 class data_statistik(object):
-
+    """
+    Ein Objekt der Klasse data_statistik nimmt die json-Daten als Dictionary und bietet
+    die 2 Funktionen count_data und count_data_short an.
+    """
+    
     def __init__(self, json_data):
+        """
+        Beim Erstellen eines Objekts der Klasse data_statistik wird ein Dictionary von data.json genommen.
+        """
+
         self.json_data = json_data
 
     def count_data(self):
+        """
+        Mit count_data werden alle vorhandenen Schlüssel und deren Anzahl ausgegeben.
+
+        Beispiel:
+
+        a = data_statistik(json_data)
+        a.count_data()
+        """
+        
         self.count_data = {}
 
         for key in self.json_data:
@@ -25,10 +54,18 @@ class data_statistik(object):
 
         for key in self.count_data:
             print key, ": ", self.count_data[key]
-#        print "Anzahl der Einträge:", len(json_data.keys())
+#        print "Anzahl der Einträge:", len(self.json_data.keys())
 
     def count_data_short(self):
-        # Variable (Dictionary) um die Einträge zu zählen
+        """
+        Mit count_data_short wird eine kurze Statistik ausgegeben.
+
+        Beispiel:
+
+        a = data_statistik(json_data)
+        a.count_data_short()
+        """
+
         count_data = {
             "all": 0,
             "video": 0,
@@ -83,12 +120,19 @@ class data_statistik(object):
 #            print key, ": ", count_data[key]
 
 
+
+
 # Datei data.json einlesen
 json_file_content = open('data.json').read()
 
 # json laden und in eine Variable (Dictionary) stecken
 json_data = simplejson.loads(json_file_content)
 
+
+
+# --- ohne OOP ---
+#
+# ohne OOP - Mit count_data_short wird eine kurze Statistik ausgegeben.
 def count_data_short(json_data):
     # Variable (Dictionary) um die Einträge zu zählen
     count_data = {
@@ -144,7 +188,7 @@ def count_data_short(json_data):
 #    for key in count_data:
 #        print key, ": ", count_data[key]
 
-
+# ohne OOP - Mit count_data werden alle vorhandenen Schlüssel und deren Anzahl ausgegeben.
 def count_data(json_data):
     count_data = {}
 
@@ -160,10 +204,14 @@ def count_data(json_data):
 #    print "Anzahl der Einträge:", len(json_data.keys())
 
 
+# --- ohne OOP ---
 #count_data_short(json_data)
-
 #count_data(json_data)
 
+# --- mit OOP ---
 stat = data_statistik(json_data)
 stat.count_data_short()
-stat.count_data()
+#stat.count_data()
+
+
+
