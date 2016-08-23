@@ -29,4 +29,4 @@ pip install simplejson
 
 ### Lizenz
 
-https://github.com/openscreencast/openscreencast_scripts/blob/master/LICENSE
+[MIT](https://github.com/openscreencast/openscreencast_scripts/blob/master/LICENSE)
