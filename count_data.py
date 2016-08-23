@@ -4,7 +4,7 @@
 # Skript um die einzelnen keys der data.json-Datei zu zählen
 # data.json - Datenbank von openscreencast.de
 # Author: info@openscreencast.de
-# License: MIT
+# License: MIT (https://github.com/openscreencast/openscreencast_scripts/blob/master/LICENSE)
 
 """
 count_data.py ist ein Skript um die Datei data.json (Datenbank) von openscreencast.de

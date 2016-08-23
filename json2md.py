@@ -5,7 +5,7 @@
 # data.json - Datenbank von openscreencast.de
 # md-Dateien sind für die Software pelican
 # Author: info@openscreencast.de
-# License: MIT
+# License: MIT (https://github.com/openscreencast/openscreencast_scripts/blob/master/LICENSE)
 
 import simplejson
 import datetime
