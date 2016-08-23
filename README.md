@@ -2,6 +2,8 @@
 
 Skripte von openscreencast.de (Author: info ÄT openscreencast.de)    
 
+## Tools
+
 ### json2md.py
 
 Skript um die einzelnen keys der data.json-Datei in md-Dateien umzuwandeln    
@@ -27,6 +29,6 @@ pip install simplejson
 ./count_data.py
 ```
 
-### Lizenz
+## Lizenz
 
 [MIT](https://github.com/openscreencast/openscreencast_scripts/blob/master/LICENSE)
