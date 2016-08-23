@@ -17,8 +17,8 @@ pip install simplejson
 
 ### count_data.py
 
-Skript um die einzelnen keys der data.json-Datei zu zählen
-data.json - Datenbank von openscreencast.de    
+Skript um die einzelnen keys der data.json-Datei zu zählen    
+data.json - Datenbank von openscreencast.de
 
 Beispiel:
 
