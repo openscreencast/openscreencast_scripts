@@ -27,6 +27,19 @@ pip install simplejson
 ./count_data.py
 ```
 
+### createfeeds.py
+
+Skript um die RSS-Feeds und XSPF-Dateien zu erstellen (für OGG, MP4, WEBM, MKV)    
+data.json - Datenbank von openscreencast.de    
+meta.json - Metadaten
+
+Beispiel:
+
+```
+pip install simplejson
+./createfeeds.py
+```
+
 ## Lizenz
 
 [MIT](https://github.com/openscreencast/openscreencast_scripts/blob/master/LICENSE)
