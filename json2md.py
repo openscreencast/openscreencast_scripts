@@ -12,6 +12,10 @@ import datetime
 import html2text
 import codecs
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 # Datei data.json einlesen
 json_file_content = open('data.json').read()
 # json laden und in eine Variable stecken
